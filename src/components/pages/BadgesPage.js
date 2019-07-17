@@ -2,7 +2,7 @@ import React from 'react';
 
 function BadgesPage() {
     return (
-        <div className="Page BadgesPage">
+        <div className="App__Page BadgesPage">
             BadgesPage
         </div>
     );

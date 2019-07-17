@@ -2,8 +2,8 @@ import React from 'react';
 
 function HomePage() {
     return (
-        <div className="Page HomePage">
-            HomePage
+        <div className="App__Page HomePage">
+            HomePage!!
         </div>
     );
 }

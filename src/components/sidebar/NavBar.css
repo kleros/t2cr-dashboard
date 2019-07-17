@@ -1,0 +1,24 @@
+.NavBar {
+  margin-top: 30px;
+  margin-left: 14px;
+  flex: 1;
+}
+
+.NavBar__NavItem {
+  display: block;
+  padding-left: 46px;
+  padding-top: 19px;
+  height: 60px;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.NavBar__NavItem--active {
+  position: relative;
+  left: 0;
+  width: 265px;
+  background-color: #43009d;
+  background-image: url(../../assets/images/arrow-right.svg);
+  background-repeat: no-repeat;
+  background-position: 231px 19px;
+}

@@ -1,0 +1,12 @@
+.SideBar {
+    position: relative;
+    width: 260px;
+    background: #5b15ba;
+    display: flex;
+    flex-direction: column;
+}
+
+.SideBar__Banner {
+    padding-bottom: 25px;
+    margin: auto;
+}
