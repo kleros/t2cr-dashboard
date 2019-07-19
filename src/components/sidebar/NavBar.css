@@ -7,10 +7,9 @@
 .NavBar__NavItem {
   display: block;
   padding-left: 46px;
-  padding-top: 19px;
   height: 60px;
   font-size: 18px;
-  line-height: 21px;
+  line-height: 60px;
 }
 
 .NavBar__NavItem--active {
