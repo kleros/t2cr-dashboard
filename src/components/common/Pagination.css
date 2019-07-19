@@ -1,0 +1,8 @@
+.Pagination {
+    margin: 18px 0 18px 38px; 
+    display: flex;
+}
+
+.Pagination img {
+    margin: 0 6px 5px 6px;
+}

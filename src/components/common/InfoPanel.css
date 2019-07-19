@@ -31,11 +31,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    white-space: pre-line;
 }
 
 .InfoPanel__Data--small {
     padding-top: 8px;
     padding-bottom: 8px;
+    justify-content: space-evenly;
 }
 
 .InfoPanel__Data--medium {
@@ -71,7 +73,9 @@
 
 .InfoPanel__Data__Label {
     color: #D09CFF;
+    white-space: pre-line;
 }
+
 
 .InfoPanel__Data__Label--small {
     font-size: 14px;
@@ -86,4 +90,33 @@
 .InfoPanel__Data__Label--big {
     font-size: 18px;
     line-height: 21px;
+}
+
+/* InfoPanel__Image */
+
+.InfoPanel__Image {
+    position: relative;
+}
+
+.InfoPanel__Image--small {
+    width: 102.13px;
+    height: 102.13px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
+
+.InfoPanel__Image--medium {
+    width: 80px;
+    height: 80px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
+
+.InfoPanel__Image > img {
+    position: absolute; 
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }

@@ -1,0 +1,8 @@
+.HomePage__Row {
+    display: flex;
+    align-items: center;
+}
+
+.HomePage_Column {
+    flex: 1;
+}

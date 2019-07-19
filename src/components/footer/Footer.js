@@ -1,11 +1,10 @@
 import './Footer.css';
-import twitterIcon from "../../assets/images/twitter-icon.svg";
+import React from 'react';
+import twitterIcon from '../../assets/images/twitter-icon.svg';
 import githubIcon from '../../assets/images/github-icon.svg';
-import otherIcon from "../../assets/images/other-icon.svg";
+import otherIcon from '../../assets/images/other-icon.svg';
 import linkedinIcon from '../../assets/images/linkedin-icon.svg';
 import telegramIcon from '../../assets/images/telegram-icon.svg';
-
-import React from 'react';
 
 function Footer() {
     return (
