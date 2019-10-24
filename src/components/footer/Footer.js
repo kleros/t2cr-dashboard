@@ -6,6 +6,7 @@ import otherIcon from '../../assets/images/other-icon.svg';
 import linkedinIcon from '../../assets/images/linkedin-icon.svg';
 import telegramIcon from '../../assets/images/telegram-icon.svg';
 
+// TODO: Rename otherIcon to proper name and change the link
 function Footer() {
     return (
         <div className="Footer">

@@ -1,28 +1,21 @@
-import './TwitterFeed.css';
 import React from 'react';
-import klerosLogoImg from '../../assets/images/kleros-logo-small.svg';
-import twitterLogoImg from '../../assets/images/twitter-logo.svg';
-import twitterDemoImg from '../../assets/images/twitter-feed-demo.png';
+import { Timeline } from 'react-twitter-widgets';
 
 function TwitterFeed() {
-    return (
-        <div className="TwitterFeed">
-            <div className="TwitterFeed__Header">
-                <div className="TwitterFeed__KlerosLogo">
-                    <img src={klerosLogoImg} alt="Kleros" />
-                </div>
-                <div className="TwitterFeed__Handle">
-                    <p>@klerosT2CR</p>
-                </div>
-                <div className="TwitterFeed__TwitterLogo">
-                    <img src={twitterLogoImg} alt="Twitter" />
-                </div>
-            </div>
-            <div className="Twitter__Tweets">
-                <img src={twitterDemoImg} alt="Twitter demo feed" />>
-            </div>
-        </div>
-    );
+  return (
+    <Timeline
+      dataSource={{
+        sourceType: "profile",
+        screenName: "klerosT2CR"
+      }}
+      options={{
+        username: "klerosT2CR",
+        height: "284",
+        width: "100%",
+        linkColor: "#D09CFF"
+      }}
+    />
+  );
 }
 
 export default TwitterFeed;

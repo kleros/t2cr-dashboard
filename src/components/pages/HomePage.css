@@ -1,8 +1,18 @@
 .HomePage__Row {
     display: flex;
-    align-items: center;
+    align-items: top;
+    justify-content: flex-end;
 }
 
-.HomePage_Column {
+.HomePage__Crowdfunding {
+    margin-right: 12px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.HomePage__TwitterFeed {
+    margin: 8px;
+    max-width: 280px;
 }
