@@ -16,3 +16,14 @@
   padding-right: 81px;
   background: linear-gradient(249.79deg, #1e075f 16.9%, #4d00b4 69.8%);
 }
+
+.App__ErrorBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4d00b4;
+  border: 3px solid #1e075f;
+  padding: 50px;
+  text-align: center;
+}

@@ -6,3 +6,7 @@
 .Pagination img {
     margin: 0 6px 5px 6px;
 }
+
+.Pagination--Arrow {
+    cursor: pointer;
+}

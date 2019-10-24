@@ -1,0 +1,11 @@
+.CrowdfundingTokens {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.CrowdfundingTokens__Spinner {
+    font-size: 36px;
+    padding: 50px;
+}

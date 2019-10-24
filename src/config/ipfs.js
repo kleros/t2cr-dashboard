@@ -1,0 +1,1 @@
+export const IPFS_GATEWAY = "https://ipfs.kleros.io";
