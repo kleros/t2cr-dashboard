@@ -1,6 +1,6 @@
 export const KLEROS_LIQUID_CONTRACT_ADDR = {
-    kovan: '0x60b2abfdfad9c0873242f59f2a8c32a3cc682f80',
-    main: '0x988b3A538b618C7A603e1c11Ab82Cd16dbE28069'
+  kovan: '0x60b2abfdfad9c0873242f59f2a8c32a3cc682f80',
+  main: '0x988b3A538b618C7A603e1c11Ab82Cd16dbE28069'
 };
 
 export const KLEROS_LIQUID_CONTRACT_ABI = [

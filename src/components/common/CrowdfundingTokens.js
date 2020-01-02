@@ -7,6 +7,15 @@ import InfoPanel from "../common/InfoPanel";
 import Pagination from '../common/Pagination';
 import { IPFS_GATEWAY } from '../../config/ipfs';
 
+const DashboardStatusLabel = {
+    0: 'Accepted',
+    1: 'Rejected',
+    2: 'Pending',
+    3: 'Challenged',
+    4: 'Crowdfunding',
+    5: 'Appealed',
+}
+
 class CrowdfundingTokens extends React.Component {
     
     renderCrowdfundingTokens() {
@@ -19,13 +28,12 @@ class CrowdfundingTokens extends React.Component {
             const token = crowdfundingTokens[i];
             tokens.push(
                 <InfoPanel 
-                    key={token.ticker}
+                    key={token.tokenId + '-' + token.lastCrowdfunding}
                     type="small" 
                     img={`${IPFS_GATEWAY}${token.symbolMultihash}`} 
                     imgWidth="60"
-                    imgHeight="60"
                     imgText={token.ticker} 
-                    label={`Crowdfunding\nAppeal`} 
+                    label={DashboardStatusLabel[token.currentStatus]} 
                     value={`${token.name} - ${token.ticker}`}
                 />
             );

@@ -1,24 +1,30 @@
 .InfoPanel {
-    margin: 8px;
+    margin: 8px 0;
     background: #5016A7;
     border-radius: 12px;
     display: flex;
 }
 
 .InfoPanel--small {
-    width: 351.15px;
-    height: 133.61px;
-    padding: 16px 28px;
+    width: 21.5vw;
+    height: 120px;
+    padding: 8px 14px;
 }
 
-.InfoPanel--medium {
-    width: 330.76px;
-    height: 191px;
-    padding: 56px 30px;
+.InfoPanel--token {
+    width: 22vw;
+    height: 140px;
+    padding: 28px 15px;
+}
+
+.InfoPanel--badge {
+    width: 22vw;
+    height: 140px;
+    padding: 28px 15px;
 }
 
 .InfoPanel--big {
-    width: 502px;
+    width: 33.5vw;
     height: 159px;
     padding: 25px;
 }
@@ -40,7 +46,12 @@
     justify-content: space-evenly;
 }
 
-.InfoPanel__Data--medium {
+.InfoPanel__Data--token {
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.InfoPanel__Data--badge {
     padding-top: 1px;
     padding-bottom: 1px;
 }
@@ -58,7 +69,12 @@
     line-height: 21px;
 }
 
-.InfoPanel__Data__Value--medium {
+.InfoPanel__Data__Value--token {
+    font-size: 36px;
+    line-height: 42px;
+}
+
+.InfoPanel__Data__Value--badge {
     font-size: 36px;
     line-height: 42px;
 }
@@ -82,7 +98,12 @@
     line-height: 16px;
 }
 
-.InfoPanel__Data__Label--medium {
+.InfoPanel__Data__Label--token {
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.InfoPanel__Data__Label--badge {
     font-size: 18px;
     line-height: 21px;
 }
@@ -105,11 +126,16 @@
     border-radius: 50%;
 }
 
-.InfoPanel__Image--medium {
+.InfoPanel__Image--token {
     width: 80px;
     height: 80px;
     background-color: #FFFFFF;
     border-radius: 50%;
+}
+
+.InfoPanel__Image--badge {
+    width: 80px;
+    height: 80px;
 }
 
 .InfoPanel__Image > img {

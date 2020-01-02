@@ -10,6 +10,7 @@ import etherImg from '../../assets/images/ether-image.svg';
 import currencyImg from '../../assets/images/currency-image.svg';
 
 class HomePage extends React.Component {
+
     render() {
         return (
             <div className="App__Page HomePage">
@@ -18,7 +19,7 @@ class HomePage extends React.Component {
                     <InfoPanel type="big" img={currencyImg} imgText="USD" label="TOTAL USD value" value={this.props.totalUsd} />
                 </InfoPanelWrapper>
     
-                <DataChart />
+                <DataChart dataset={this.props.chartDataset} />
                 
                 <div className="HomePage__Row">
                     <div className="HomePage__Crowdfunding">
@@ -34,22 +35,21 @@ class HomePage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { tokensTotalEth, badgesTotalEth, priceEth } = state;
+    let chartDataset = null;
+    let totalEth = null;
+    let totalUsd = null;
+    
+    const { depositData, priceEth } = state;
 
-  if (tokensTotalEth == null || badgesTotalEth == null || priceEth == null) {
-      return {
-          totalEth: null,
-          totalUsd: null
-      }
-  }
+    if (depositData !== null && priceEth !== null) {
+        chartDataset = depositData.chartDataset;
+        totalEth = depositData.tokensTotalEth + depositData.badgesTotalEth;
+        totalEth = parseFloat(Math.round(totalEth * 100) / 100).toFixed(2);
+        totalUsd = totalEth * priceEth;
+        totalUsd = parseFloat(Math.round(totalUsd * 100) / 100).toFixed(2);
+    }
 
-  const totalEth = tokensTotalEth + badgesTotalEth;
-  const totalUsd = totalEth * priceEth;
-  
-  return {
-    totalEth: parseFloat(Math.round(totalEth * 100) / 100).toFixed(2),
-    totalUsd: parseFloat(Math.round(totalUsd * 100) / 100).toFixed(2),
-  };
+  return { chartDataset, totalEth, totalUsd };
 };
 
 export default connect(mapStateToProps)(HomePage);
