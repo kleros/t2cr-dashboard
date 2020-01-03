@@ -1,10 +1,7 @@
 import "./DataChart.css";
-import _ from "lodash";
 import React from 'react';
-import { connect } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import { BallPulse } from 'react-pure-loaders';
-import prepareDataset from '../../util/prepareDataset';
 
 /*
  * Chart.js configuration object
@@ -81,7 +78,7 @@ class DataChart extends React.Component {
   }
 
   render() {
-    if (!this.props.dataLoaded) {
+    if (!this.props.dataset) {
       return (
         <div className="DataChart">
           <div className="DataChart__Spinner">Loading deposit data</div>
@@ -102,22 +99,4 @@ class DataChart extends React.Component {
   }
 };
 
-const mapStateToProps = state => {
-  if (state.badgesDeposits == null || state.tokensDeposits == null) {
-    return { dataLoaded: false }; 
-  }
-
-  const badgesDeposits = [];
-  _.forOwn(state.badgesDeposits, function(deposits, badgeAddr) {
-        badgesDeposits.push( ...deposits);
-  });
-  
-  const totalDeposits = [...state.tokensDeposits, ...badgesDeposits ];
-  
-  return {
-    dataLoaded: true,
-    dataset: prepareDataset(totalDeposits)
-  }
-}
-
-export default connect(mapStateToProps)(DataChart);
+export default DataChart;

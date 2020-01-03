@@ -19,10 +19,10 @@ export const DisputeStatus = {
 }
 
 export const DashboardStatus = {
-    Accepted: 'accepted', 
-    Rejected: 'rejected',
-    Pending: 'pending',
-    Challenged: 'challenged',
-    Crowdfunding: 'crowdfunding',
-    Appealed: 'appealed'
+    Accepted: 0, 
+    Rejected: 1,
+    Pending: 2,
+    Challenged: 3,
+    Crowdfunding: 4,
+    Appealed: 5
 }

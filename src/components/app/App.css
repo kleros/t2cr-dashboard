@@ -11,9 +11,9 @@
 
 .App__Page {
   flex: 1;
-  padding-top: 54px;
-  padding-left: 81px;
-  padding-right: 81px;
+  padding-top: 40px;
+  padding-left: 60px;
+  padding-right: 60px;
   background: linear-gradient(249.79deg, #1e075f 16.9%, #4d00b4 69.8%);
 }
 

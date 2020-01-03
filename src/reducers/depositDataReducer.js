@@ -1,8 +1,8 @@
-import { FETCH_BADGES_DEPOSITS } from '../actions/types';
+import { FETCH_DEPOSIT_DATA} from '../actions/types';
 
 export default (state = null, action) => {
     switch (action.type) {
-        case FETCH_BADGES_DEPOSITS:
+        case FETCH_DEPOSIT_DATA: 
             return action.payload;
         default:
             return state;

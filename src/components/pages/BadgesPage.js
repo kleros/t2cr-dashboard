@@ -13,8 +13,9 @@ import badgeChallengedImg from '../../assets/images/badge-challenged-icon.svg';
 import badgeAppealedImg from '../../assets/images/badge-apealed-icon.svg';
 
 class BadgesPage extends React.Component {
+
     render() {
-        const { accepted, rejected, crowdfunding, pending, challenged, appealed } = this.props.badgesCountByStatus;
+        const { accepted, rejected, crowdfunding, pending, challenged, appealed, total } = this.props.badgesCountByStatus;
         return (
             <div className="App__Page BadgesPage">
                 <InfoPanelWrapper>
@@ -22,15 +23,15 @@ class BadgesPage extends React.Component {
                     <InfoPanel type="big" img={currencyImg} imgText="USD" label="TOTAL USD value" value={this.props.badgesTotalUsd} />
                 </InfoPanelWrapper>
     
-                <Headline text={ this.props.badgesCount ? `${this.props.badgesCount} Badges Added` : null } />
+                <Headline text={ total ? `${total} Badges Added` : null } />
     
                 <InfoPanelWrapper>
-                    <InfoPanel type="medium" img={badgeAcceptedImg} imgText="Accepted" label="Accepted" value={accepted} />
-                    <InfoPanel type="medium" img={badgeRejectedImg} imgText="Rejected" label="Rejected" value={rejected} />
-                    <InfoPanel type="medium" img={badgeCrowdfundingImg} imgText="Crowdfunding" label="Crowdfunding" value={crowdfunding} />
-                    <InfoPanel type="medium" img={badgePendingImg} imgText="Pending" label="Pending" value={pending} />
-                    <InfoPanel type="medium" img={badgeChallengedImg} imgText="Challenged" label="Challenged" value={challenged} />
-                    <InfoPanel type="medium" img={badgeAppealedImg} imgText="Appealed" label="Appealed" value={appealed} />
+                    <InfoPanel type="badge" img={badgeAcceptedImg} imgText="Accepted" label="Accepted" value={accepted} />
+                    <InfoPanel type="badge" img={badgeRejectedImg} imgText="Rejected" label="Rejected" value={rejected} />
+                    <InfoPanel type="badge" img={badgeCrowdfundingImg} imgText="Crowdfunding" label="Crowdfunding" value={crowdfunding} />
+                    <InfoPanel type="badge" img={badgePendingImg} imgText="Pending" label="Pending" value={pending} />
+                    <InfoPanel type="badge" img={badgeChallengedImg} imgText="Challenged" label="Challenged" value={challenged} />
+                    <InfoPanel type="badge" img={badgeAppealedImg} imgText="Appealed" label="Appealed" value={appealed} />
                 </InfoPanelWrapper>
             </div>
         );
@@ -38,15 +39,17 @@ class BadgesPage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  let { badgesCount, badgesCountByStatus, badgesTotalEth, priceEth } = state;
-  let badgesTotalUsd = null;
+    let badgesTotalEth = null;
+    let badgesTotalUsd = null;
+    
+    const { badgesCountByStatus, depositData, priceEth } = state;
+ 
+    if (depositData !== null && priceEth !== null) {
+        badgesTotalUsd = parseFloat(Math.round(depositData.badgesTotalEth * priceEth * 100) / 100).toFixed(2)
+        badgesTotalEth = parseFloat(Math.round(depositData.badgesTotalEth * 100) / 100).toFixed(2);
+    }
 
-  if (badgesTotalEth != null && priceEth != null) {
-    badgesTotalUsd = parseFloat(Math.round(badgesTotalEth * priceEth * 100) / 100).toFixed(2)
-    badgesTotalEth = parseFloat(Math.round(badgesTotalEth * 100) / 100).toFixed(2);
-  }
-
-  return { badgesCount, badgesCountByStatus, badgesTotalEth, badgesTotalUsd };
+    return { badgesCountByStatus, badgesTotalEth, badgesTotalUsd };
 };
   
 export default connect(mapStateToProps)(BadgesPage);
