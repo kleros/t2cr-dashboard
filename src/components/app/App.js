@@ -1,17 +1,21 @@
 import "./App.css";
+import "./BurgerMenu.css";
 import Web3 from "web3";
 import React from "react";
 import { connect } from "react-redux";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch, NavLink } from "react-router-dom";
+import { slide as ReactBurgerMenu } from 'react-burger-menu'
 import SideBar from "../sidebar/SideBar";
+import Logo from "../sidebar/Logo";
 import HomePage from "../pages/HomePage";
 import TokensPage from "../pages/TokensPage";
 import BadgesPage from "../pages/BadgesPage";
 import Footer from "../footer/Footer";
+import bannerImg from "../../assets/images/banner.png"
 import { fetchDepositData, fetchEthPrice, fetchTokensCountByStatus, fetchBadgesCountByStatus, fetchCrowdfundingTokens } from "../../actions";
 
 class App extends React.Component {
-  state = { error: false };
+  state = { error: false, menuOpen: false };
 
   loadData = async () => {
     const { network } = this.state
@@ -23,7 +27,7 @@ class App extends React.Component {
   }
 
   componentWillMount = async () => {
-    let network = 'main';  
+    let network = 'main';
     if (Web3.givenProvider) {
       const web3 = new Web3(Web3.givenProvider);
       network = await web3.eth.net.getNetworkType();
@@ -35,6 +39,11 @@ class App extends React.Component {
     this.setState({ network });
     this.loadData();
     setTimeout(this.loadData, 30000);
+  }
+
+  handleStateChange(state) {
+    const { isOpen } = state
+    this.setState({ menuOpen: isOpen })
   }
 
   renderError() {
@@ -55,13 +64,45 @@ class App extends React.Component {
     return (
       <div className="App">
         <HashRouter>
-          <div className="App__Row">
+          <div className="App__Row" id="outer-container">
+            <ReactBurgerMenu
+              outerContainerId="outer-container"
+              pageWrapId="page-wrap"
+              width={307}
+              isOpen={this.state.menuOpen}
+              onStateChange={state => this.handleStateChange(state)}
+            >
+              <Logo />
+              <br />
+              <NavLink
+                onClick={() => this.setState({menuOpen: false})}
+                className="NavBar__NavItem"
+                activeClassName="NavBar__NavItem--active"
+                to="/"
+                exact
+              >Home</NavLink>
+              <NavLink
+                onClick={() => this.setState({menuOpen: false})}
+                className="NavBar__NavItem"
+                activeClassName="NavBar__NavItem--active"
+                to="/tokens">Tokens</NavLink>
+              <NavLink
+                onClick={() => this.setState({menuOpen: false})}
+                className="NavBar__NavItem"
+                activeClassName="NavBar__NavItem--active"
+                to="/badges">Badges</NavLink>
+              <div className="SideBar__Banner">
+                <a href="https://tokens.kleros.io/"><img src={bannerImg} alt="Banner"/></a>
+              </div>
+            </ReactBurgerMenu >
             <SideBar />
-            <Switch>
-              <Route path="/" exact component={HomePage} />
-              <Route path="/tokens" component={TokensPage} />
-              <Route path="/badges" component={BadgesPage} />
-            </Switch>
+            <div id="page-wrap">
+              <Switch>
+                <Route path="/" exact component={HomePage} />
+                <Route path="/tokens" component={TokensPage} />
+                <Route path="/badges" component={BadgesPage} />
+              </Switch>
+            </div>
           </div>
           <Footer />
         </HashRouter>
