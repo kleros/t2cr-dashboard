@@ -6,7 +6,7 @@ import { BallPulse } from 'react-pure-loaders'
 class Headline extends React.Component {
   static propTypes = { text: PropTypes.string }
 
-  static defaultProps = { text: '' }
+  static defaultProps = { text: null }
 
   renderMessage() {
     const { text } = this.props

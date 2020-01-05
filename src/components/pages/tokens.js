@@ -36,14 +36,14 @@ const TokensPage = ({
           img={etherImg}
           imgText="ETH"
           label="TOTAL ETH deposited"
-          value={String(tokensTotalEth)}
+          value={tokensTotalEth}
         />
         <InfoPanel
           type="big"
           img={currencyImg}
           imgText="USD"
           label="TOTAL USD value"
-          value={String(tokensTotalUsd)}
+          value={tokensTotalUsd}
         />
       </InfoPanelWrapper>
 
@@ -55,42 +55,42 @@ const TokensPage = ({
           img={tokenAcceptedImg}
           imgText="Accepted"
           label="Accepted"
-          value={String(accepted)}
+          value={accepted}
         />
         <InfoPanel
           type="token"
           img={tokenRejectedImg}
           imgText="Rejected"
           label="Rejected"
-          value={String(rejected)}
+          value={rejected}
         />
         <InfoPanel
           type="token"
           img={tokenCrowdfundingImg}
           imgText="Crowdfunding"
           label="Crowdfunding"
-          value={String(crowdfunding)}
+          value={crowdfunding}
         />
         <InfoPanel
           type="token"
           img={tokenPendingImg}
           imgText="Pending"
           label="Pending"
-          value={String(pending)}
+          value={pending}
         />
         <InfoPanel
           type="token"
           img={tokenChallengedImg}
           imgText="Challenged"
           label="Challenged"
-          value={String(challenged)}
+          value={challenged}
         />
         <InfoPanel
           type="token"
           img={tokenAppealedImg}
           imgText="Appealed"
           label="Appealed"
-          value={String(appealed)}
+          value={appealed}
         />
       </InfoPanelWrapper>
     </div>

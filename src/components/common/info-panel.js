@@ -10,7 +10,7 @@ class InfoPanel extends React.Component {
     imgWidth: PropTypes.string,
     imgHeight: PropTypes.string,
     type: PropTypes.string.isRequired,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     label: PropTypes.string.isRequired
   }
 

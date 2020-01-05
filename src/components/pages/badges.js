@@ -35,14 +35,14 @@ const BadgesPage = ({
           img={etherImg}
           imgText="ETH"
           label="TOTAL ETH deposited"
-          value={String(badgesTotalEth)}
+          value={badgesTotalEth}
         />
         <InfoPanel
           type="big"
           img={currencyImg}
           imgText="USD"
           label="TOTAL USD value"
-          value={String(badgesTotalUsd)}
+          value={badgesTotalUsd}
         />
       </InfoPanelWrapper>
 
@@ -54,42 +54,42 @@ const BadgesPage = ({
           img={badgeAcceptedImg}
           imgText="Accepted"
           label="Accepted"
-          value={String(accepted)}
+          value={accepted}
         />
         <InfoPanel
           type="badge"
           img={badgeRejectedImg}
           imgText="Rejected"
           label="Rejected"
-          value={String(rejected)}
+          value={rejected}
         />
         <InfoPanel
           type="badge"
           img={badgeCrowdfundingImg}
           imgText="Crowdfunding"
           label="Crowdfunding"
-          value={String(crowdfunding)}
+          value={crowdfunding}
         />
         <InfoPanel
           type="badge"
           img={badgePendingImg}
           imgText="Pending"
           label="Pending"
-          value={String(pending)}
+          value={pending}
         />
         <InfoPanel
           type="badge"
           img={badgeChallengedImg}
           imgText="Challenged"
           label="Challenged"
-          value={String(challenged)}
+          value={challenged}
         />
         <InfoPanel
           type="badge"
           img={badgeAppealedImg}
           imgText="Appealed"
           label="Appealed"
-          value={String(appealed)}
+          value={appealed}
         />
       </InfoPanelWrapper>
     </div>
