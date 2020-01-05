@@ -1,8 +1,25 @@
 import './InfoPanel.css'
 import React from 'react'
+import PropTypes from 'prop-types'
 import { BallPulse } from 'react-pure-loaders'
 
 class InfoPanel extends React.Component {
+  static propTypes = {
+    img: PropTypes.string.isRequired,
+    imgText: PropTypes.string.isRequired,
+    imgWidth: PropTypes.string,
+    imgHeight: PropTypes.string,
+    type: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    label: PropTypes.string.isRequired
+  }
+
+  static defaultProps = {
+    value: 0,
+    imgWidth: null,
+    imgHeight: null
+  }
+
   renderImage() {
     const { img, imgText, imgWidth, imgHeight, type } = this.props
     return (

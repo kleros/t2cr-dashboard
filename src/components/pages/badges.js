@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Headline from '../common/headline'
 import InfoPanelWrapper from '../common/info-panel-wrapper'
@@ -34,14 +35,14 @@ const BadgesPage = ({
           img={etherImg}
           imgText="ETH"
           label="TOTAL ETH deposited"
-          value={badgesTotalEth}
+          value={String(badgesTotalEth)}
         />
         <InfoPanel
           type="big"
           img={currencyImg}
           imgText="USD"
           label="TOTAL USD value"
-          value={badgesTotalUsd}
+          value={String(badgesTotalUsd)}
         />
       </InfoPanelWrapper>
 
@@ -53,46 +54,65 @@ const BadgesPage = ({
           img={badgeAcceptedImg}
           imgText="Accepted"
           label="Accepted"
-          value={accepted}
+          value={String(accepted)}
         />
         <InfoPanel
           type="badge"
           img={badgeRejectedImg}
           imgText="Rejected"
           label="Rejected"
-          value={rejected}
+          value={String(rejected)}
         />
         <InfoPanel
           type="badge"
           img={badgeCrowdfundingImg}
           imgText="Crowdfunding"
           label="Crowdfunding"
-          value={crowdfunding}
+          value={String(crowdfunding)}
         />
         <InfoPanel
           type="badge"
           img={badgePendingImg}
           imgText="Pending"
           label="Pending"
-          value={pending}
+          value={String(pending)}
         />
         <InfoPanel
           type="badge"
           img={badgeChallengedImg}
           imgText="Challenged"
           label="Challenged"
-          value={challenged}
+          value={String(challenged)}
         />
         <InfoPanel
           type="badge"
           img={badgeAppealedImg}
           imgText="Appealed"
           label="Appealed"
-          value={appealed}
+          value={String(appealed)}
         />
       </InfoPanelWrapper>
     </div>
   )
+}
+
+BadgesPage.propTypes = {
+  badgesCountByStatus: PropTypes.shape({
+    accepted: PropTypes.number,
+    rejected: PropTypes.number,
+    crowdfunding: PropTypes.number,
+    pending: PropTypes.number,
+    challenged: PropTypes.number,
+    appealed: PropTypes.number,
+    total: PropTypes.number
+  }).isRequired,
+  badgesTotalEth: PropTypes.string,
+  badgesTotalUsd: PropTypes.string
+}
+
+BadgesPage.defaultProps = {
+  badgesTotalEth: null,
+  badgesTotalUsd: null
 }
 
 const mapStateToProps = state => {

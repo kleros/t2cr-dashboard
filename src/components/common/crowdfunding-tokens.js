@@ -1,5 +1,6 @@
 import './CrowdfundingTokens.css'
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { BallPulse } from 'react-pure-loaders'
 import InfoPanelWrapper from './info-panel-wrapper'
@@ -17,6 +18,24 @@ const DashboardStatusLabel = {
 }
 
 class CrowdfundingTokens extends React.Component {
+  static propTypes = {
+    crowdfundingTokens: PropTypes.arrayOf(
+      PropTypes.shape({
+        tokenId: PropTypes.string,
+        lastCrowdfunding: PropTypes.number,
+        name: PropTypes.string,
+        ticker: PropTypes.string,
+        symbolMultihash: PropTypes.string,
+        currentStatus: PropTypes.number.isRequired
+      })
+    ),
+    crowdfundingPage: PropTypes.number.isRequired
+  }
+
+  static defaultProps = {
+    crowdfundingTokens: null
+  }
+
   renderCrowdfundingTokens() {
     const { crowdfundingTokens, crowdfundingPage } = this.props
     const totalTokens = crowdfundingTokens.length

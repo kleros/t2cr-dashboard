@@ -1,8 +1,13 @@
 import './Headline.css'
 import React from 'react'
+import PropTypes from 'prop-types'
 import { BallPulse } from 'react-pure-loaders'
 
 class Headline extends React.Component {
+  static propTypes = { text: PropTypes.string }
+
+  static defaultProps = { text: '' }
+
   renderMessage() {
     const { text } = this.props
     return !text ? (

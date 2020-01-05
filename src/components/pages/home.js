@@ -1,5 +1,6 @@
 import './HomePage.css'
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import CrowdfundingTokens from '../common/crowdfunding-tokens'
 import DataChart from '../common/data-chart'
@@ -17,14 +18,14 @@ const HomePage = ({ totalEth, totalUsd, chartDataset }) => (
         img={etherImg}
         imgText="ETH"
         label="TOTAL ETH deposited"
-        value={totalEth}
+        value={String(totalEth)}
       />
       <InfoPanel
         type="big"
         img={currencyImg}
         imgText="USD"
         label="TOTAL USD value"
-        value={totalUsd}
+        value={String(totalUsd)}
       />
     </InfoPanelWrapper>
 
@@ -40,6 +41,18 @@ const HomePage = ({ totalEth, totalUsd, chartDataset }) => (
     </div>
   </div>
 )
+
+HomePage.propTypes = {
+  totalEth: PropTypes.string,
+  totalUsd: PropTypes.string,
+  chartDataset: PropTypes.shape({}) // TODO: Add dataset shape proptype.
+}
+
+HomePage.defaultProps = {
+  totalEth: null,
+  totalUsd: null,
+  chartDataset: null
+}
 
 const mapStateToProps = state => {
   let chartDataset = null

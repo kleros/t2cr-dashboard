@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Headline from '../common/headline'
 import InfoPanelWrapper from '../common/info-panel-wrapper'
@@ -35,14 +36,14 @@ const TokensPage = ({
           img={etherImg}
           imgText="ETH"
           label="TOTAL ETH deposited"
-          value={tokensTotalEth}
+          value={String(tokensTotalEth)}
         />
         <InfoPanel
           type="big"
           img={currencyImg}
           imgText="USD"
           label="TOTAL USD value"
-          value={tokensTotalUsd}
+          value={String(tokensTotalUsd)}
         />
       </InfoPanelWrapper>
 
@@ -54,46 +55,66 @@ const TokensPage = ({
           img={tokenAcceptedImg}
           imgText="Accepted"
           label="Accepted"
-          value={accepted}
+          value={String(accepted)}
         />
         <InfoPanel
           type="token"
           img={tokenRejectedImg}
           imgText="Rejected"
           label="Rejected"
-          value={rejected}
+          value={String(rejected)}
         />
         <InfoPanel
           type="token"
           img={tokenCrowdfundingImg}
           imgText="Crowdfunding"
           label="Crowdfunding"
-          value={crowdfunding}
+          value={String(crowdfunding)}
         />
         <InfoPanel
           type="token"
           img={tokenPendingImg}
           imgText="Pending"
           label="Pending"
-          value={pending}
+          value={String(pending)}
         />
         <InfoPanel
           type="token"
           img={tokenChallengedImg}
           imgText="Challenged"
           label="Challenged"
-          value={challenged}
+          value={String(challenged)}
         />
         <InfoPanel
           type="token"
           img={tokenAppealedImg}
           imgText="Appealed"
           label="Appealed"
-          value={appealed}
+          value={String(appealed)}
         />
       </InfoPanelWrapper>
     </div>
   )
+}
+
+TokensPage.propTypes = {
+  tokensCountByStatus: PropTypes.shape({
+    accepted: PropTypes.number,
+    rejected: PropTypes.number,
+    crowdfunding: PropTypes.number,
+    pending: PropTypes.number,
+    challenged: PropTypes.number,
+    appealed: PropTypes.number,
+    total: PropTypes.number
+  }),
+  tokensTotalEth: PropTypes.string,
+  tokensTotalUsd: PropTypes.string
+}
+
+TokensPage.defaultProps = {
+  tokensCountByStatus: null,
+  tokensTotalEth: null,
+  tokensTotalUsd: null
 }
 
 const mapStateToProps = state => {

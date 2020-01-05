@@ -1,5 +1,6 @@
 import './Pagination.css'
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import arrowLeftImg from '../../assets/images/arrow-left-small.svg'
 import dotImg from '../../assets/images/dot.svg'
@@ -7,6 +8,26 @@ import arrowRightImg from '../../assets/images/arrow-right-small.svg'
 import { nextCrowdfundingPage, previousCrowdfundingPage } from '../../actions'
 
 class Pagination extends React.Component {
+  static propTypes = {
+    crowdfundingPage: PropTypes.number.isRequired,
+    previousCrowdfundingPage: PropTypes.func.isRequired,
+    nextCrowdfundingPage: PropTypes.func.isRequired,
+    crowdfundingTokens: PropTypes.arrayOf(
+      PropTypes.shape({
+        tokenId: PropTypes.string,
+        lastCrowdfunding: PropTypes.number,
+        name: PropTypes.string,
+        ticker: PropTypes.string,
+        symbolMultihash: PropTypes.string,
+        currentStatus: PropTypes.number.isRequired
+      })
+    )
+  }
+
+  static defaultProps = {
+    crowdfundingTokens: null
+  }
+
   renderPreviousButton() {
     const { crowdfundingPage, previousCrowdfundingPage } = this.props
     if (crowdfundingPage === 1) return

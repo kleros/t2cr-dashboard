@@ -1,5 +1,6 @@
 import './DataChart.css'
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Line } from 'react-chartjs-2'
 import { BallPulse } from 'react-pure-loaders'
 
@@ -49,6 +50,17 @@ const chartOptions = {
 }
 
 class DataChart extends React.Component {
+  static propTypes = {
+    dataset: PropTypes.shape({
+      labels: PropTypes.arrayOf(PropTypes.string),
+      data: PropTypes.arrayOf(PropTypes.number)
+    })
+  }
+
+  static defaultProps = {
+    dataset: null
+  }
+
   getChartData = () => {
     const { dataset } = this.props
 

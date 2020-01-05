@@ -1,6 +1,7 @@
 import './App.css'
 import './BurgerMenu.css'
 import Web3 from 'web3'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { HashRouter, Route, Switch, NavLink } from 'react-router-dom'
@@ -22,6 +23,14 @@ import {
 
 class App extends React.Component {
   state = { error: false, menuOpen: false }
+
+  static propTypes = {
+    fetchDepositData: PropTypes.func.isRequired,
+    fetchEthPrice: PropTypes.func.isRequired,
+    fetchTokensCountByStatus: PropTypes.func.isRequired,
+    fetchBadgesCountByStatus: PropTypes.func.isRequired,
+    fetchCrowdfundingTokens: PropTypes.func.isRequired
+  }
 
   loadData = async () => {
     const { network } = this.state
