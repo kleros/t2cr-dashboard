@@ -31,7 +31,7 @@ class InfoPanel extends React.Component {
 
   renderValue() {
     const { value } = this.props
-    return value ? <p>{value}</p> : <BallPulse color="#FFF" loading />
+    return value !== null ? <p>{value}</p> : <BallPulse color="#FFF" loading />
   }
 
   render() {
