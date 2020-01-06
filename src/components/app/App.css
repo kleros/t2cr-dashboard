@@ -17,7 +17,14 @@
 
 @media (max-width: 768px) {
   .App__Page {
-    padding-top: 100px;
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 420px) {
+  .App__Page {
+    padding: 50px;
+    padding-top: 50px;
   }
 }
 

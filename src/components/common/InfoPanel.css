@@ -4,6 +4,7 @@
     border-radius: 12px;
     display: flex;
     flex: 1;
+    align-items: center;
 }
 
 .InfoPanel--small {
@@ -56,7 +57,7 @@
 }
 
 .InfoPanel__Data--big {
-    margin-left: 25px;
+    margin-left: 15px;
 }
 
 
@@ -80,6 +81,19 @@
 .InfoPanel__Data__Value--big {
     font-size: 40px;
     line-height: 56px;
+}
+
+@media (max-width: 375px) {
+    .InfoPanel__Data__Value--big {
+        font-size: 20px !important;
+    }
+}
+
+
+@media (max-width: 420px) {
+    .InfoPanel__Data__Value--big {
+        font-size: 25px !important;
+    }
 }
 
 
@@ -120,11 +134,11 @@
 }
 
 .InfoPanel__Image--small {
-    width: 102.13px;
-    height: 102.13px;
+    width: 80px;
+    height: 80px;
     background-color: #FFFFFF;
     border-radius: 50%;
-    padding: 20px;
+    padding: 15px;
 }
 
 .InfoPanel__Image--token {
@@ -132,7 +146,7 @@
     height: 80px;
     background-color: #FFFFFF;
     border-radius: 50%;
-    padding: 20px;
+    padding: 15px;
 }
 
 .InfoPanel__Image--badge {
