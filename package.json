@@ -12,6 +12,7 @@
     "format": "npm run lint:eslint:fix && npm run lint:prettier:fix"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.27",
     "axios": "^0.19.0",
     "chart.js": "^2.8.0",
     "lodash": "^4.17.15",
@@ -20,7 +21,7 @@
     "react-burger-menu": "^2.6.13",
     "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.8.6",
-    "react-pure-loaders": "^3.0.0",
+    "react-pure-loaders": "^3.0.1",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",

@@ -29,7 +29,7 @@ const TokensPage = ({
   } = tokensCountByStatus
 
   return (
-    <div className="App__Page TokensPage">
+    <div className="App__Page">
       <InfoPanelWrapper>
         <InfoPanel
           type="big"

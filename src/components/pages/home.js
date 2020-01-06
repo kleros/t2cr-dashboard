@@ -18,14 +18,14 @@ const HomePage = ({ totalEth, totalUsd, chartDataset }) => (
         img={etherImg}
         imgText="ETH"
         label="TOTAL ETH deposited"
-        value={String(totalEth)}
+        value={totalEth}
       />
       <InfoPanel
         type="big"
         img={currencyImg}
         imgText="USD"
         label="TOTAL USD value"
-        value={String(totalUsd)}
+        value={totalUsd}
       />
     </InfoPanelWrapper>
 

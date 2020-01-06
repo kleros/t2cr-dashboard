@@ -7,24 +7,24 @@ class InfoPanel extends React.Component {
   static propTypes = {
     img: PropTypes.string.isRequired,
     imgText: PropTypes.string.isRequired,
-    imgWidth: PropTypes.string,
-    imgHeight: PropTypes.string,
     type: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     label: PropTypes.string.isRequired
   }
 
   static defaultProps = {
-    value: 0,
-    imgWidth: null,
-    imgHeight: null
+    value: 0
   }
 
   renderImage() {
-    const { img, imgText, imgWidth, imgHeight, type } = this.props
+    const { img, imgText, type } = this.props
     return (
       <div className={`InfoPanel__Image InfoPanel__Image--${type}`}>
-        <img src={img} alt={imgText} width={imgWidth} height={imgHeight} />
+        <img
+          src={img}
+          alt={imgText}
+          style={{ width: '100%', height: '100%' }}
+        />
       </div>
     )
   }
