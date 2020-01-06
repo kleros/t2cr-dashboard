@@ -7,9 +7,9 @@
 }
 
 .InfoPanel--small {
-    width: 21.5vw;
     height: 120px;
     padding: 8px 14px;
+    flex: 1;
 }
 
 .InfoPanel--token {
@@ -124,6 +124,7 @@
     height: 102.13px;
     background-color: #FFFFFF;
     border-radius: 50%;
+    padding: 20px;
 }
 
 .InfoPanel__Image--token {
@@ -131,6 +132,7 @@
     height: 80px;
     background-color: #FFFFFF;
     border-radius: 50%;
+    padding: 20px;
 }
 
 .InfoPanel__Image--badge {
